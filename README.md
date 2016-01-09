@@ -6,7 +6,7 @@ Xnapshot - automating screenshots of your iOS app on every device using Xamarin.
 - Create an [awesome iOS app](https://itunes.apple.com/no/app/id953899091?at=11l5UV&ct=website) using C# and Xamarin. 
 - Add a new `Console project` to your solution and add the `Xnapshot` and [Xamarin.UITest](https://www.nuget.org/packages/Xamarin.UITest/) nuget packages. 
 - Create a new class, `AppNameScreenshots` and derive from the [Xnapshot.Screenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs) abstract class.
-- Add your preferred device type, iOS version, screenshots folder and path to your App bundle as constructor arguments. See [Usage](#Usage) below for allowed values.
+- Add your preferred device type, iOS version, screenshots folder and path to your App bundle as constructor arguments. See [Usage](https://github.com/Sankra/Xnapshot#usage) below for allowed values.
 
 ```cs
 public class GoldenRatioScreenshots : Screenshots {
