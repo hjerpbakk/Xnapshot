@@ -5,7 +5,7 @@ Xnapshot - automated screenshots of your iOS app on every device using Xamarin.U
 
 - Create an [awesome iOS app](https://itunes.apple.com/no/app/id953899091?at=11l5UV&ct=website) using C# and Xamarin. 
 - Add a new `Console project` to your solution and add the `Xnapshot` and [Xamarin.UITest](https://www.nuget.org/packages/Xamarin.UITest/) nuget packages. 
-- Create a new class, `AppNameScreenshots` and derive from the [Xnapshot.Screenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs) abstract class.
+- Create a new class, `AppNameScreenshots` and derive from the [Xnapshot.Screenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs#L56) abstract class.
 - Add your preferred device type, iOS version, screenshots folder and path to your App bundle as constructor arguments. See [Usage](#usage) below for allowed values.
 
 ```cs
@@ -19,7 +19,7 @@ public class GoldenRatioScreenshots : Screenshots {
 }
 ```
 
-- It’s now time to implement the `SetAppStateForScreenshotX` methods. Use `Xamarin.UITest` to automate your app, putting it in the correct state before each screenshot. The examples below are from my Golden Ratio Calculator app. `SetAppStateForScreenshot1` is empty because the first screenshot is of the first screen.
+- It’s now time to implement the [SetAppStateForScreenshotX](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs#L124) methods. Use `Xamarin.UITest` to automate your [app](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs#L73), putting it in the correct state before each screenshot. The examples below are from my Golden Ratio Calculator app. `SetAppStateForScreenshot1` is empty because the first screenshot is of the first screen.
 
 ```cs
 protected override void SetAppStateForScreenshot1() {
@@ -80,6 +80,6 @@ And the screenshots folder contains screenshots for all configured devices:
 
 Set to `false` as default. Set this to `true` if you want to run   [ImageOptim](https://imageoptim.com) on every screenshot after save. ImageOptim must be installed in your Applications folder and will losslessly decrease the file size of the screenshots. 
 
-### SaveScreenshots
+### [SaveScreenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs#L93)
 
 Set to `true` as default. Set this to `false` if you want to do a dry run, testing your `SetAppStateForScreenshotX` methods without actually taking screenshots. The methods will be run in the same order, the only difference being that nothing is saved.
