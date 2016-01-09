@@ -1,5 +1,5 @@
 # Xnapshot
-Xnapshot - automating screenshots of your iOS app on every device using Xamarin.UITest
+Xnapshot - automated screenshots of your iOS app on every device using Xamarin.UITest. 
 
 ## tl;dr
 
@@ -15,11 +15,11 @@ public class GoldenRatioScreenshots : Screenshots {
     "iOS-9-2", 
     "/Users/sankra/Projects/GoldenRatioCalculator/screenshots/en-US", 
     "/Users/sankra/Projects/GoldenRatioCalculator/iOS/bin/iPhoneSimulator/Debug/GoldenRatioCalculatoriOS.app") {
-	}
+  }
 }
 ```
 
-- Use Xamarin.UITest to implement the `SetAppStateForScreenshotX` methods. This should automate your app, putting it in the correct state for each screenshot. The examples below are from my Golden Ratio Calculator app. `SetAppStateForScreenshot1` is empty because the first screenshot is of the first screen.
+- It’s now time to implement the `SetAppStateForScreenshotX` methods. Use `Xamarin.UITest` to automate your app, putting it in the correct state before each screenshot. The examples below are from my Golden Ratio Calculator app. `SetAppStateForScreenshot1` is empty because the first screenshot is of the first screen.
 
 ```cs
 protected override void SetAppStateForScreenshot1() {
@@ -73,3 +73,13 @@ And the screenshots folder contains screenshots for all configured devices:
 ## Usage
 
 ## Advanced Options
+
+[Xnapshot.Screenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs) has a couple of advanced options that can be set in your `AppNameScreenshots` constructor.
+
+### OptimizeImagesAfterSave
+
+Set to `false` as default. Set this to `true` if you want to run   [ImageOptim](https://imageoptim.com) on every screenshot after save. ImageOptim must be installed in your Applications folder and will losslessly decrease the file size of the screenshots. 
+
+### SaveScreenshots
+
+Set to `true` as default. Set this to `false` if you want to do a dry run, testing your `SetAppStateForScreenshotX` methods without actually taking screenshots. The methods will be run in the same order, the only difference being that nothing is saved.
