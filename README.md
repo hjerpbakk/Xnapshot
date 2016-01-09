@@ -16,7 +16,7 @@ Xnapshot - automating screenshots of your iOS app on every device using Xamarin.
 
 - Call the `AppNameScreenshots.TakeScreenshots()` method and run your console app to take the screenshots.
 
-```
+```cs
 public static void Main(string[] args) {
    var screenshots = new GoldenRatioScreenshots();
    screenshots.TakeScreenshots();
