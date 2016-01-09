@@ -76,7 +76,7 @@ And the screenshots folder contains screenshots for all configured devices:
 
 [Xnapshot.Screenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs) has a couple of advanced options that can be set in your `AppNameScreenshots` constructor.
 
-### OptimizeImagesAfterSave
+### [OptimizeImagesAfterSave](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs#L84)
 
 Set to `false` as default. Set this to `true` if you want to run   [ImageOptim](https://imageoptim.com) on every screenshot after save. ImageOptim must be installed in your Applications folder and will losslessly decrease the file size of the screenshots. 
 
