@@ -10,20 +10,18 @@ Xnapshot - automating screenshots of your iOS app on every device using Xamarin.
 
 ```cs
 public class GoldenRatioScreenshots : Screenshots {
-  public GoldenRatioScreenshots() : base(DeviceType.iPhone,
+  public GoldenRatioScreenshots() : base(
+    DeviceType.iPhone,
     "iOS-9-2", 
-		"/Users/sankra/Projects/GoldenRatioCalculator/screenshots/en-US", 
-		"/Users/sankra/Projects/GoldenRatioCalculator/iOS/bin/iPhoneSimulator/Debug/GoldenRatioCalculatoriOS.app") {
+    "/Users/sankra/Projects/GoldenRatioCalculator/screenshots/en-US", 
+    "/Users/sankra/Projects/GoldenRatioCalculator/iOS/bin/iPhoneSimulator/Debug/GoldenRatioCalculatoriOS.app") {
 	}
 }
 ```
 
-- Use Xamarin.UITest to implement the `SetAppStateForScreenshotX` methods. This should automate your app, putting it in the correct state for each screenshot. 
+- Use Xamarin.UITest to implement the `SetAppStateForScreenshotX` methods. This should automate your app, putting it in the correct state for each screenshot. The examples below are from my Golden Ratio Calculator app. `SetAppStateForScreenshot1` is empty because the first screenshot is of the first screen.
 
 ```cs
-// Example from Golden Ratio Calculator.
-// The first screenshot is of the first screen,
-// thus this method is empty.
 protected override void SetAppStateForScreenshot1() {
 }
 
@@ -62,11 +60,19 @@ public static void Main(string[] args) {
 }
 ```
 
-The screenshots look like this after the console app has run:
+The screenshots look like this after this example app has run:
 
-
+<h3></h3>
+<div style="width:100%; text-align:center">
+	<img src="http://hjerpbakk.com/s/example_screenshots.png" alt="example_screenshots" width="1302.0" height="479.0">
+</div>
 
 And the screenshots folder contains screenshots for all configured devices:
+
+<h3></h3>
+<div style="width:100%; text-align:center">
+	<img src="http://hjerpbakk.com/s/example_screenshots_folder.png" alt="example_screenshots_folder" width="676.0" height="456.0">
+</div>
 
 
 
