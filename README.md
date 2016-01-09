@@ -63,18 +63,12 @@ public static void Main(string[] args) {
 The screenshots look like this after this example app has run:
 
 <h3></h3>
-<div style="width:100%; text-align:center">
-	<img src="http://hjerpbakk.com/s/example_screenshots.png" alt="example_screenshots" width="1302.0" height="479.0">
-</div>
+<img src="http://hjerpbakk.com/s/example_screenshots_small.png" alt="example_screenshots_small" width="651.0" height="239.5">
 
 And the screenshots folder contains screenshots for all configured devices:
 
 <h3></h3>
-<div style="width:100%; text-align:center">
-	<img src="http://hjerpbakk.com/s/example_screenshots_folder.png" alt="example_screenshots_folder" width="676.0" height="456.0">
-</div>
-
-
+<img src="http://hjerpbakk.com/s/example_screenshots_folder.png" alt="example_screenshots_folder" width="676.0" height="456.0">
 
 ## Usage
 
