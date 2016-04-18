@@ -1,6 +1,8 @@
 # Xnapshot
 **Xnapshot - automated, localised screenshots of your iOS app on every device using C#.** 
 
+![](https://ci.appveyor.com/api/projects/status/t54ab89a920to726/branch/master?svg=true)
+
 Taking screenshots of your app on every device and localisation quickly becomes time consuming. With two languages, four different iPhones and five screenshots you are faced with forty screenshots per release. If we increase the number of languages to 10 and add iPad support, this number explodes to 10 (languages) x 7 (devices) x 5 (screenshots) = **350 screenshots**!
 
 `Xnapshot` enables you to use C#, together with Xamarin.UITest, to automatically take the screenshots for you. Just derive from the abstract [Screenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs) class, implement one method per screenshot and use your time productively while your computer takes the screenshots.
