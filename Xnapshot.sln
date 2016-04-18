@@ -16,6 +16,6 @@ Global
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		description = Xnapshot - automating screenshots of your iOS app on every device using Xamarin.UITest.
-		version = 1.0
+		version = 1.0.1
 	EndGlobalSection
 EndGlobal
