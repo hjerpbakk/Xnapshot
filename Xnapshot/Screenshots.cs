@@ -261,6 +261,9 @@ namespace Xnapshot {
                         return node.InnerText;
                     case "integer":
                         return Convert.ToInt32(node.InnerText, System.Globalization.NumberFormatInfo.InvariantInfo);
+                    case "true":
+                    case "false":
+                        return bool.Parse(node.Name);
                     default:
                         throw new InvalidOperationException("Unexpted content in device_set.plist " + node.Name);
                 }

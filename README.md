@@ -8,7 +8,7 @@ Taking screenshots of your app on every device and localisation quickly becomes 
 ## tl;dr
 
 - Create an [awesome iOS app](https://itunes.apple.com/no/app/id953899091?at=11l5UV&ct=website) using C# and Xamarin.
-- Add the [Xamarin.TestCloud.Agent](https://www.nuget.org/packages/Xamarin.TestCloud.Agent/) nuget package to your iOS project and enable Calabash while running in debug mode.
+- Add the [Xamarin.TestCloud.Agent](https://www.nuget.org/packages/Xamarin.TestCloud.Agent/) nuget package to your iOS project and update your `AppDelegate` class to enable Calabash while running in debug mode.
 
 ```cs
 public override void FinishedLaunching(UIApplication application) {
