@@ -1,7 +1,9 @@
 # Xnapshot
 **Xnapshot - automated, localised screenshots of your iOS app on every device using C#.** 
 
-![](https://ci.appveyor.com/api/projects/status/t54ab89a920to726/branch/master?svg=true)(https://ci.appveyor.com/project/Sankra/xnapshot)
+![](https://ci.appveyor.com/api/projects/status/t54ab89a920to726/branch/master?svg=true)
+
+https://ci.appveyor.com/project/Sankra/xnapshot
 
 Taking screenshots of your app on every device and localisation quickly becomes time consuming. With two languages, four different iPhones and five screenshots you are faced with forty screenshots per release. If we increase the number of languages to 10 and add iPad support, this number explodes to 10 (languages) x 7 (devices) x 5 (screenshots) = **350 screenshots**!
 
