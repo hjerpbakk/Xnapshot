@@ -6,6 +6,7 @@ before_build:
   - nuget restore
 build:
   verbosity: minimal
+  publish_nuget: true
 artifacts:
   - path: Xnapshot\bin\Release\Xnapshot.dll
     name: Xnapshot.dll
