@@ -18,4 +18,7 @@
       <dependency id="Xamarin.UITest" version="(1.0,)" />
     </dependencies>
   </metadata>
+  <files>
+    <file src="Xnapshot\Screenshots.cs" target="Xnapshot\Screenshots.cs" />
+  </files>
 </package>
