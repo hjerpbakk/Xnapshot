@@ -15,7 +15,7 @@
     <copyright>© 2016 Runar Ovesen Hjerpbakk</copyright>
     <tags>Screenshots iOS Xamarin OSX Mac</tags>
     <dependencies>
-      <dependency id="Xamarin.UITest" version="(1.3.8,)" />
+      <dependency id="Xamarin.UITest" version="(1.3.7,)" />
     </dependencies>
   </metadata>
   <files>
