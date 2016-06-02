@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/Sankra/Xnapshot</projectUrl>
     <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Xnapshot enables you to use C#, together with Xamarin.UITest, to automatically take the screenshots for you. Just derive from the abstract Screenshots class, implement one method per screenshot and use your time productively while your computer takes the screenshots.</description>
+    <description>Xnapshot enables you to use C#, together with Xamarin.UITest, to automatically take app screenshots for you. Just derive from the abstract Screenshots class, implement one method per screenshot and use your time productively while your computer takes the screenshots.</description>
     <releaseNotes>Initial public version.</releaseNotes>
     <copyright>© 2016 Runar Ovesen Hjerpbakk</copyright>
     <tags>Screenshots iOS Xamarin OSX Mac</tags>
