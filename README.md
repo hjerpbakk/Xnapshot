@@ -20,7 +20,7 @@ public override void FinishedLaunching(UIApplication application) {
 …
 ```
 
-- Add a new `Console project` to your solution and add the `Xnapshot` and [Xamarin.UITest](https://www.nuget.org/packages/Xamarin.UITest/) nuget packages. 
+- Add a new `Console project` to your solution and add the [Xnapshot](https://www.nuget.org/packages/Xnapshot/) nuget package. 
 - Create a new class, `AppNameScreenshots` and derive from the abstract [Xnapshot.Screenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs#L56) class.
 - Add your preferred device type, iOS version, screenshots folder and path to your App bundle as constructor arguments. See [Usage](#usage) below for allowed values.
 
