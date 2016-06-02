@@ -19,6 +19,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="Xnapshot\Screenshots.cs" target="content\Screenshots.cs" />
+    <file src="Xnapshot\Screenshots.cs" target="content\App_Packages\Xnapshot.$version$\Screenshots.cs" />
   </files>
 </package>
