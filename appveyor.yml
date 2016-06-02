@@ -18,10 +18,11 @@ artifacts:
   - path: Xnapshot\bin\Release\Xnapshot.dll
     name: Xnapshot.dll
   - path: Xnapshot.*.nupkg
+    name: Xnapshot.$env:APPVEYOR_BUILD_VERSION.nupkg
   
 deploy:
   provider: NuGet
   api_key: 
     secure: 0Qdb2JFO+bwNGuu31r12mbWEGHnFI3DHGx9ta5wxRoAEVwS7jrXjqtN5KD3tAAwx
   skip_symbols: true
-  artifact: Xnapshot.*.nupkg
+  artifact: Xnapshot.$env:APPVEYOR_BUILD_VERSION.nupkg
