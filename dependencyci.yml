@@ -1,5 +1,2 @@
-# don't run unlicensed test on any development dependencies
-type:
-  development:
-    tests:
-      unlicensed: skip
+tests:
+  unlicensed: skip
