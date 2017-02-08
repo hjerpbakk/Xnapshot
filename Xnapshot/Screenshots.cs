@@ -156,7 +156,7 @@ namespace Xnapshot {
                 throw new ArgumentNullException("osVersion");
             }
 
-            var regex = new Regex("([a-z][A-Z]*)+[-][0-9][-][0-9]");
+            var regex = new Regex("([a-z][A-Z]*)+[-]([0-9]*)[-][0-9]");
             if (!regex.IsMatch(osVersion)) {
                 const string Message = "osVersion must be OS name followed by OS version, seperated by \"-\". ";
                 var example = "Example: \"iOS-9-2\". osVersion was: \"" + osVersion + "\".";
