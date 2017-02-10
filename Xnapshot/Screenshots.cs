@@ -229,12 +229,11 @@ namespace Xnapshot {
                     k => k.EndsWith(osVersion, StringComparison.InvariantCulture));
                 var devicesForVersion = (Dictionary<string, object>)defaultDevices[fulliOSVersion];
 
-                // NOTE: Change this to include other models if needed
-                var excludedModels = new Regex("([6-9])([a-z])");
                 var availableSimulators = new List<Device>();
                 foreach (var device in devicesForVersion.Keys.Where(
                     k => k.Contains(deviceType) 
-                    && !excludedModels.IsMatch(k))) {
+					// NOTE: Change this to include other models if needed
+					&& (k.Contains("7") || k.Contains("7plus") || k.Contains("SE")))) {
                     availableSimulators.Add(new Device((string)devicesForVersion[device], device));
                 }
 
