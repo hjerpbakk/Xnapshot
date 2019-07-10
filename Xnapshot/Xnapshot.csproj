@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Xnapshot</RootNamespace>
     <AssemblyName>Xnapshot</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <ReleaseVersion>2.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -38,11 +38,15 @@
     <Compile Include="Screenshots.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Xml" />
     <Reference Include="System" />
     <Reference Include="Xamarin.UITest">
       <HintPath>..\packages\Xamarin.UITest.3.0.0\lib\net45\Xamarin.UITest.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.XmlDocument">
+      <HintPath>..\packages\System.Xml.XmlDocument.4.3.0\lib\net46\System.Xml.XmlDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

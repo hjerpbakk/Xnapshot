@@ -31,14 +31,13 @@ public override void FinishedLaunching(UIApplication application) {
 
 I use the settings for one of my own apps, [Golden Ratio Calculator](https://itunes.apple.com/no/app/id953899091?at=11l5UV&ct=website), to illustrate the usage of Xnapshot.
 
-- Add a new `Console project` to your solution and add the [Xnapshot](https://www.nuget.org/packages/Xnapshot/) nuget package. I name such projects `[AppName].Screenshots`.
+- Add a new .Net Framework `Console project` to your solution and add the [Xnapshot](https://www.nuget.org/packages/Xnapshot/) nuget package. I name such projects `[AppName].Screens`. The project must a .Net Framework project, version 4.7 or newer. .Net Core is not supported as Xamarin.UITests, which is needed to automate the before each screenshot, does not support .Net Core.
 - Create a new class, `[AppName]Screenshots` and derive from the abstract [Xnapshot.Screenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs#L49) class.
 - Add your iOS version, screenshots folder, path to your App bundle and devices you wish to screenshot as constructor arguments.
 
 ```cs
 public class GoldenRatioScreenshots : Screenshots {
   public GoldenRatioScreenshots() : base(
-    DeviceType.iPhone,
     "iOS-12-2",
     "/Users/sankra/Projects/GoldenRatioCalculator/screenshots/en-US",
     "/Users/sankra/Projects/GoldenRatioCalculator/iOS/bin/iPhoneSimulator/Debug/GoldenRatioCalculatoriOS.app",

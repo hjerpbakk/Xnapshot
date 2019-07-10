@@ -15,6 +15,7 @@
     <copyright>© 2016-2019 Runar Ovesen Hjerpbakk</copyright>
     <tags>Screenshots iOS Xamarin macOS dotnet</tags>
     <dependencies>
+      <dependency id="System.XML.XmlDocument" version="4.3.0" />
       <dependency id="Xamarin.UITest" version="3.0.0" />
     </dependencies>
   </metadata>
