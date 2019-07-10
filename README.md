@@ -28,7 +28,8 @@ public override void FinishedLaunching(UIApplication application) {
   #if DEBUG
     Xamarin.Calabash.Start();
   #endif
-…
+  // Rest of method omitted for brevity
+}
 ```
 
 ### Configuration
@@ -98,7 +99,7 @@ public static void Main(string[] args) {
 }
 ```
 
-My screenshots look like this after this example app has run:
+My screenshots look like this after this example app has run (I've framed them for the occasion):
 
 <img src="https://hjerpbakk.com/img/Xnapshot/2example_screenshots_small.png" alt="example_screenshots_small" width="651.0" height="239.5">
 
