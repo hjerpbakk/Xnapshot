@@ -6,7 +6,7 @@ pull_requests:
 configuration: Release
 
 before_build:
-  - nuget restore Xnapshot\packages.config -SolutionDirectory ..\
+  - nuget restore Xnapshot\packages.config -SolutionDirectory .
   
 build:
   verbosity: minimal
