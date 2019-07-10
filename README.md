@@ -8,6 +8,8 @@ Taking screenshots of your app on every device and localization quickly becomes 
 
 `Xnapshot` enables you to use C#, together with Xamarin.UITest, to automatically take the screenshots for you. Just derive from the abstract [Screenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs#L49) class, implement one method per screenshot and use your time productively while your computer takes the screenshots.
 
+See Xnapshot in action in the video below:
+
 [![See Xnapshot in action](https://hjerpbakk.com/img/Xnapshot/xnapshot-youtube.png)](https://www.youtube.com/watch?v=cAVcWUZBLSo)
 
 ## Complete working example
