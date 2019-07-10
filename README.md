@@ -1,12 +1,10 @@
 # Xnapshot
 
-> Xnapshot enables you to use C#, together with Xamarin.UITest, to automatically take app screenshots for you. Just derive from the abstract Screenshots class, implement one method per screenshot and use your time productively while your computer takes the screenshots.
-
 [![Build status](https://ci.appveyor.com/api/projects/status/tkls3ydfbu9lcmqu?svg=true)](https://ci.appveyor.com/project/Sankra/xnapshot) [![Latest version](https://img.shields.io/nuget/v/Xnapshot.svg)](https://www.nuget.org/packages/Xnapshot/) [![Downloads from NuGet](https://img.shields.io/nuget/dt/Xnapshot.svg)](https://www.nuget.org/packages/Xnapshot/)
 
 Taking screenshots of your app on every device and localization quickly becomes time-consuming. With 2 languages, 6 different iPhones and 10 screenshots, you are faced with 120 screenshots per release. If we increase the number of languages to 10 and add iPad support, this number explodes to 10 (languages) x 11 (devices) x 10 (screenshots) = **1 100 screenshots**!
 
-`Xnapshot` enables you to use C#, together with Xamarin.UITest, to automatically take the screenshots for you. Just derive from the abstract [Screenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs#L49) class, implement one method per screenshot and use your time productively while your computer takes the screenshots.
+[Xnapshot](https://hjerpbakk.com/blog/2019/07/10/xnapshot) enables you to use C#, together with Xamarin.UITest, to automatically take the screenshots for you. Just derive from the abstract [Screenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs#L49) class, implement one method per screenshot and use your time productively while your computer takes the screenshots.
 
 See Xnapshot in action in the video below:
 
@@ -101,11 +99,11 @@ public static void Main(string[] args) {
 
 My screenshots look like this after this example app has run (I've framed them for the occasion):
 
-<img src="https://hjerpbakk.com/img/Xnapshot/2example_screenshots_small.png" alt="example_screenshots_small" width="651.0" height="239.5">
+<img src="https://hjerpbakk.com/img/Xnapshot/screenshots.png" width="2740" height="1308">
 
 And the screenshots folder contains screenshots for all configured devices:
 
-<img src="https://hjerpbakk.com/img/Xnapshot/0example_screenshots_folder.png" alt="example_screenshots_folder" width="676.0" height="456.0">
+<img src="https://hjerpbakk.com/img/Xnapshot/screenshots-folder.png" width="822" height="742">
 
 ## Advanced Options
 
