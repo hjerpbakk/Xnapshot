@@ -2,7 +2,7 @@
 
 > Xnapshot enables you to use C#, together with Xamarin.UITest, to automatically take app screenshots for you. Just derive from the abstract Screenshots class, implement one method per screenshot and use your time productively while your computer takes the screenshots.
 
-[![](https://ci.appveyor.com/api/projects/status/t54ab89a920to726/branch/master?svg=true)](https://ci.appveyor.com/project/Sankra/xnapshot) [![Dependency Status](https://dependencyci.com/github/Sankra/Xnapshot/badge)](https://dependencyci.com/github/Sankra/Xnapshot) [![Downloads from nuget](https://img.shields.io/nuget/dt/Xnapshot.svg)](https://www.nuget.org/packages/Xnapshot/)
+[![Build status](https://ci.appveyor.com/api/projects/status/tkls3ydfbu9lcmqu?svg=true)](https://ci.appveyor.com/project/Sankra/xnapshot) [![Downloads from nuget](https://img.shields.io/nuget/dt/Xnapshot.svg)](https://www.nuget.org/packages/Xnapshot/)
 
 Taking screenshots of your app on every device and localisation quickly becomes time consuming. With two languages, four different iPhones and five screenshots you are faced with forty screenshots per release. If we increase the number of languages to 10 and add iPad support, this number explodes to 10 (languages) x 7 (devices) x 5 (screenshots) = **350 screenshots**!
 
