@@ -123,11 +123,11 @@ Set to `true` as default. Set this to `false` if you want to do a dry run, testi
 
 Set to `false` as default. Set this to `true` if you want to run   [ImageOptim](https://imageoptim.com) on every screenshot after save. ImageOptim must be installed in your Applications folder and will losslessly decrease the file size of the screenshots.
 
-## From 1.x to 2.0
+## From 1.x to 2.x
 
-Version 2.0 contains breaking changes. Here's how you update your code from 1.x to use the new version.
+Version 2.x contains breaking changes. Here's how you update your code from 1.x to use the new version.
 
-- Update the Xnapshot Nuget-package to 2.0.
+- Update the Xnapshot Nuget-package to 2.x.
 - Change your `[AppName]Screenshots` constructor from:
 
 ```cs
