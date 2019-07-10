@@ -2,13 +2,13 @@
 
 > Xnapshot enables you to use C#, together with Xamarin.UITest, to automatically take app screenshots for you. Just derive from the abstract Screenshots class, implement one method per screenshot and use your time productively while your computer takes the screenshots.
 
-[![Build status](https://ci.appveyor.com/api/projects/status/tkls3ydfbu9lcmqu?svg=true)](https://ci.appveyor.com/project/Sankra/xnapshot) [![Downloads from nuget](https://img.shields.io/nuget/dt/Xnapshot.svg)](https://www.nuget.org/packages/Xnapshot/)
+[![Build status](https://ci.appveyor.com/api/projects/status/tkls3ydfbu9lcmqu?svg=true)](https://ci.appveyor.com/project/Sankra/xnapshot) [![Latest version](https://img.shields.io/nuget/v/Xnapshot.svg)](https://www.nuget.org/packages/Xnapshot/) [![Downloads from nuget](https://img.shields.io/nuget/dt/Xnapshot.svg)](https://www.nuget.org/packages/Xnapshot/)
 
 Taking screenshots of your app on every device and localisation quickly becomes time consuming. With two languages, four different iPhones and five screenshots you are faced with forty screenshots per release. If we increase the number of languages to 10 and add iPad support, this number explodes to 10 (languages) x 7 (devices) x 5 (screenshots) = **350 screenshots**!
 
 `Xnapshot` enables you to use C#, together with Xamarin.UITest, to automatically take the screenshots for you. Just derive from the abstract [Screenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs) class, implement one method per screenshot and use your time productively while your computer takes the screenshots.
 
-## tl;dr
+## Usage
 
 - Create an [awesome iOS app](https://itunes.apple.com/no/app/id953899091?at=11l5UV&ct=website) using C# and Xamarin.
 - Add the [Xamarin.TestCloud.Agent](https://www.nuget.org/packages/Xamarin.TestCloud.Agent/) nuget package to your iOS project and update your `AppDelegate` class to enable Calabash while running in debug mode.
@@ -21,8 +21,8 @@ public override void FinishedLaunching(UIApplication application) {
 …
 ```
 
-- Add a new `Console project` to your solution and add the [Xnapshot](https://www.nuget.org/packages/Xnapshot/) nuget package. 
-- Create a new class, `AppNameScreenshots` and derive from the abstract [Xnapshot.Screenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs#L56) class.
+- Add a new `Console project` to your solution and add the [Xnapshot](https://www.nuget.org/packages/Xnapshot/) nuget package.
+- Create a new class, `[AppName]Screenshots` and derive from the abstract [Xnapshot.Screenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs#L56) class.
 - Add your preferred device type, iOS version, screenshots folder and path to your App bundle as constructor arguments. See [Usage](#usage) below for allowed values.
 
 ```cs
@@ -87,16 +87,14 @@ And the screenshots folder contains screenshots for all configured devices:
 <h3></h3>
 <img src="https://hjerpbakk.com/img/Xnapshot/0example_screenshots_folder.png" alt="example_screenshots_folder" width="676.0" height="456.0">
 
-## Usage
-
 ## Advanced Options
 
-[Xnapshot.Screenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs) has a couple of advanced options that can be set in your `AppNameScreenshots` constructor.
+The abstract [Screenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs) class has a couple of advanced options that can be set in your `[AppName]Screenshots` constructor.
 
-### [OptimizeImagesAfterSave](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs#L84)
-
-Set to `false` as default. Set this to `true` if you want to run   [ImageOptim](https://imageoptim.com) on every screenshot after save. ImageOptim must be installed in your Applications folder and will losslessly decrease the file size of the screenshots. 
-
-### [SaveScreenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs#L93)
+### [SaveScreenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot.Example.Usage/ExampleScreenshots.cs#L18)
 
 Set to `true` as default. Set this to `false` if you want to do a dry run, testing your `SetAppStateForScreenshotX` methods without actually taking screenshots. The methods will be run in the same order, the only difference being that nothing is saved.
+
+### [OptimizeImagesAfterSave](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot.Example.Usage/ExampleScreenshots.cs#L21)
+
+Set to `false` as default. Set this to `true` if you want to run   [ImageOptim](https://imageoptim.com) on every screenshot after save. ImageOptim must be installed in your Applications folder and will losslessly decrease the file size of the screenshots.
