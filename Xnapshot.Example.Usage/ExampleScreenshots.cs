@@ -10,8 +10,12 @@
             // The devices to screenshot, must be at least one.
             // The following covers all iPhone sizes at the time of writing.
             new[] {
-                "iPhone-SE",
-                "iPhone-XS"
+                "iPhone-XS-Max",
+                "iPhone-XS",
+                "iPhone-XR",
+                "iPhone-8-Plus",
+                "iPhone-8",
+                "iPhone-SE"
             }) {
 
             // Optional, whether the screenshots should be saved to disk. Default: true. 

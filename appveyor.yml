@@ -4,7 +4,10 @@ pull_requests:
   do_not_increment_build_number: true
 
 skip_commits:
-  files: README.md
+  files: 
+    - README.md
+    - Xnapshot.Example.Usage/**/*
+    - Xnapshot.Example.iOS/**/*
 
 configuration: Release
 

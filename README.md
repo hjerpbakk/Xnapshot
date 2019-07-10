@@ -33,7 +33,7 @@ I use the settings for one of my own apps, [Golden Ratio Calculator](https://itu
 
 - Add a new .Net Framework `Console project` to your solution and add the [Xnapshot](https://www.nuget.org/packages/Xnapshot/) nuget package. I name such projects `[AppName].Screens`. The project must a .Net Framework project, version 4.5 or newer. .Net Core is not supported as Xamarin.UITests, which is needed to automate the before each screenshot, does not support .Net Core.
 - Create a new class, `[AppName]Screenshots` and derive from the abstract [Xnapshot.Screenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs#L49) class.
-- Add your iOS version, screenshots folder, path to your App bundle and devices you wish to screenshot as constructor arguments.
+- Add your iOS version, screenshots folder, path to your App bundle and devices you wish to screenshot as constructor arguments. The devices listed below covers all iPhone screen sizes of the time of writing.
 
 ```cs
 public class GoldenRatioScreenshots : Screenshots {
@@ -42,14 +42,18 @@ public class GoldenRatioScreenshots : Screenshots {
     "/Users/sankra/Projects/GoldenRatioCalculator/screenshots/en-US",
     "/Users/sankra/Projects/GoldenRatioCalculator/iOS/bin/iPhoneSimulator/Debug/GoldenRatioCalculatoriOS.app",
     new[] {
-      "iPhone-SE",
-      "iPhone-XS"
+      "iPhone-XS-Max",
+      "iPhone-XS",
+      "iPhone-XR",
+      "iPhone-8-Plus",
+      "iPhone-8",
+      "iPhone-SE"
     }) {
   }
 }
 ```
 
-- It’s now time to implement the [SetAppStateForScreenshotX](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs#L124) methods in `[AppName]Screenshots`. [Xamarin.UITest](https://docs.microsoft.com/en-us/appcenter/test-cloud/uitest/) is used to automate your [app](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot.Example.Usage/ExampleScreenshots.cs#L24), putting it in the correct state before each screenshot. `SetAppStateForScreenshot1` is empty because the first screenshot is of the first screen.
+- It’s now time to implement the [SetAppStateForScreenshotX](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs#L124) methods in `[AppName]Screenshots`. [Xamarin.UITest](https://docs.microsoft.com/en-us/appcenter/test-cloud/uitest/) is used in these methods to automate your [app](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot.Example.Usage/ExampleScreenshots.cs#L24), putting it in the correct state before each screenshot. `SetAppStateForScreenshot1` is empty below because the first screenshot is of the first screen.
 
 ```cs
 protected override void SetAppStateForScreenshot1() {
@@ -118,3 +122,43 @@ Set to `true` as default. Set this to `false` if you want to do a dry run, testi
 ### [OptimizeImagesAfterSave](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot.Example.Usage/ExampleScreenshots.cs#L21)
 
 Set to `false` as default. Set this to `true` if you want to run   [ImageOptim](https://imageoptim.com) on every screenshot after save. ImageOptim must be installed in your Applications folder and will losslessly decrease the file size of the screenshots.
+
+## From 1.x to 2.0
+
+Version 2.0 contains breaking changes. Here's how you update your code from 1.x to use the new version.
+
+- Update the Xnapshot Nuget-package to 2.0.
+- Change your `[AppName]Screenshots` constructor from:
+
+```cs
+public class GoldenRatioScreenshots : Screenshots {
+  public GoldenRatioScreenshots() : base(
+    DeviceType.iPhone,
+    "iOS-9-2",
+    "/Users/sankra/Projects/GoldenRatioCalculator/screenshots/en-US",
+    "/Users/sankra/Projects/GoldenRatioCalculator/iOS/bin/iPhoneSimulator/Debug/GoldenRatioCalculatoriOS.app") {
+  }
+}
+```
+
+to
+
+```cs
+public class GoldenRatioScreenshots : Screenshots {
+  public GoldenRatioScreenshots() : base(
+    "iOS-12-2",
+    "/Users/sankra/Projects/GoldenRatioCalculator/screenshots/en-US",
+    "/Users/sankra/Projects/GoldenRatioCalculator/iOS/bin/iPhoneSimulator/Debug/GoldenRatioCalculatoriOS.app",
+    new[] {
+      "iPhone-XS-Max",
+      "iPhone-XS",
+      "iPhone-XR",
+      "iPhone-8-Plus",
+      "iPhone-8",
+      "iPhone-SE"
+    }) {
+  }
+}
+```
+
+The rest of the code should work as is.
