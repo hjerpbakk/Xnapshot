@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Xnapshot.Example.Usage {
+﻿namespace Xnapshot.Example.Usage {
     public class ExampleScreenshots : Screenshots {
         public ExampleScreenshots() : base(
             // The iOS version to use

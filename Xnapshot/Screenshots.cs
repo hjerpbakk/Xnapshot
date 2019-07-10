@@ -62,57 +62,15 @@ namespace Xnapshot {
         /// For example: iPhone-XS, iPhone-SE and so forth
         /// </param>
         protected Screenshots(string osVersion, string screenshotsPath, string appBundlePath, string[] deviceNames) {
-            VerifyArguments();
-
             this.osVersion = osVersion;
-            screenshotsDirectory = new DirectoryInfo(screenshotsPath);
             this.appBundlePath = appBundlePath;
             this.deviceNames = deviceNames;
 
+            VerifyAllArguments(screenshotsPath);
+
+            screenshotsDirectory = new DirectoryInfo(screenshotsPath);
             OptimizeImagesAfterSave = false;
             SaveScreenshots = true;
-
-            void VerifyArguments() {
-                if (osVersion == null) {
-                    throw new ArgumentNullException(nameof(osVersion));
-                }
-
-                var regex = new Regex("([a-z][A-Z]*)+[-]([0-9]*)[-][0-9]");
-                if (!regex.IsMatch(osVersion)) {
-                    const string Message = "osVersion must be OS name followed by OS version, seperated by \"-\". ";
-                    var example = "Example: \"iOS-9-2\". osVersion was: \"" + osVersion + "\".";
-                    throw new ArgumentException(Message + example, nameof(osVersion));
-                }
-
-                if (screenshotsPath == null) {
-                    throw new ArgumentNullException(nameof(screenshotsPath));
-                }
-
-                if (!Directory.Exists(screenshotsPath)) {
-                    Directory.CreateDirectory(screenshotsPath);
-                }
-
-                if (appBundlePath == null) {
-                    throw new ArgumentNullException(nameof(appBundlePath));
-                }
-
-                if (!Directory.Exists(appBundlePath)) {
-                    throw new ArgumentException($"Could not find App bundle at: \"{appBundlePath}\".",
-                        nameof(appBundlePath));
-                }
-
-                var availableSimulatorNames = DeviceSetParser.GetAvailableSimulatorNames(osVersion);
-                if (deviceNames == null) {
-                    throw new ArgumentNullException(GetSimulatorNameErrorMessage(), nameof(deviceNames));
-                }
-
-                if (deviceNames.Length == 0 || deviceNames.Any(d => !availableSimulatorNames.Contains(d))) {
-                    throw new ArgumentException(GetSimulatorNameErrorMessage(), nameof(deviceNames));
-                }
-
-                string GetSimulatorNameErrorMessage() =>
-                    $"Specify the names of the devices you wish to screenshot. Available device names are: {Environment.NewLine}{string.Join(Environment.NewLine, availableSimulatorNames)}";
-            }
         }
 
         /// <summary>
@@ -163,55 +121,6 @@ namespace Xnapshot {
                     .StartApp();
 
                 TakeScreenShot(device.Name);
-            }
-
-            void ClearScreenshotsDirectory() {
-                if (!SaveScreenshots) {
-                    return;
-                }
-
-                foreach (var file in screenshotsDirectory.EnumerateFileSystemInfos()) {
-                    file.Delete();
-                }
-            }
-
-            void TakeScreenShot(string deviceName) {
-                var type = GetType();
-                for (int i = 1; i <= 10; i++) {
-                    var methodInfo = type.GetMethod("SetAppStateForScreenshot" + i, BindingFlags.NonPublic | BindingFlags.Instance);
-                    if (methodInfo.GetBaseDefinition().DeclaringType != methodInfo.DeclaringType) {
-                        var setAppStateForScreenshot = (Action)Delegate.CreateDelegate(typeof(Action), this, methodInfo);
-                        TakeScreenshot(setAppStateForScreenshot);
-                    }
-                }
-
-                Console.WriteLine($"{Environment.NewLine}All screenshots completed 😃");
-
-                void TakeScreenshot(Action readyAppForScreenshot) {
-                    readyAppForScreenshot();
-                    if (!SaveScreenshots) {
-                        return;
-                    }
-
-                    ++screenshotIndex;
-                    var screenshotFile = App.Screenshot("temp");
-                    var filename = screenshotIndex + " " + deviceName + Path.GetExtension(screenshotFile.FullName);
-                    var destinationFileName = Path.Combine(screenshotsDirectory.FullName, filename);
-                    screenshotFile.MoveTo(destinationFileName);
-                    if (OptimizeImagesAfterSave) {
-                        OptimizeImage();
-
-                        void OptimizeImage() {
-                            var optimizeImage = new ProcessStartInfo {
-                                FileName = "/Applications/ImageOptim.app/Contents/MacOS/ImageOptim",
-                                UseShellExecute = false,
-                                Arguments = "\"" + destinationFileName + "\""
-                            };
-
-                            Process.Start(optimizeImage);
-                        }
-                    }
-                }
             }
         }
 
@@ -285,6 +194,95 @@ namespace Xnapshot {
         /// </summary>
         protected virtual void SetAppStateForScreenshot10() { }
 
+        void VerifyAllArguments(string screenshotsPath) {
+            if (osVersion == null) {
+                throw new ArgumentNullException(nameof(osVersion));
+            }
+
+            var regex = new Regex("([a-z][A-Z]*)+[-]([0-9]*)[-][0-9]");
+            if (!regex.IsMatch(osVersion)) {
+                const string Message = "osVersion must be OS name followed by OS version, seperated by \"-\". ";
+                var example = "Example: \"iOS-9-2\". osVersion was: \"" + osVersion + "\".";
+                throw new ArgumentException(Message + example, nameof(osVersion));
+            }
+
+            if (screenshotsPath == null) {
+                throw new ArgumentNullException(nameof(screenshotsPath));
+            }
+
+            if (!Directory.Exists(screenshotsPath)) {
+                Directory.CreateDirectory(screenshotsPath);
+            }
+
+            if (appBundlePath == null) {
+                throw new ArgumentNullException(nameof(appBundlePath));
+            }
+
+            if (!Directory.Exists(appBundlePath)) {
+                throw new ArgumentException($"Could not find App bundle at: \"{appBundlePath}\".",
+                    nameof(appBundlePath));
+            }
+
+            const string SimulatorNameErrorMessage = "Specify the names of the devices you wish to screenshot. Available device names are:{0}{0}{1}{0}";
+            var availableSimulatorNames = DeviceSetParser.GetAvailableSimulatorNames(osVersion);
+            if (deviceNames == null) {
+                throw new ArgumentNullException(string.Format(SimulatorNameErrorMessage, Environment.NewLine, string.Join(Environment.NewLine, availableSimulatorNames)), nameof(deviceNames));
+            }
+
+            if (deviceNames.Length == 0 || deviceNames.Any(d => !availableSimulatorNames.Contains(d))) {
+                throw new ArgumentException(string.Format(SimulatorNameErrorMessage, Environment.NewLine, string.Join(Environment.NewLine, availableSimulatorNames)), nameof(deviceNames));
+            }
+        }
+
+        void ClearScreenshotsDirectory() {
+            if (!SaveScreenshots) {
+                return;
+            }
+
+            foreach (var file in screenshotsDirectory.EnumerateFileSystemInfos()) {
+                file.Delete();
+            }
+        }
+
+        void TakeScreenShot(string deviceName) {
+            var type = GetType();
+            for (int i = 1; i <= 10; i++) {
+                var methodInfo = type.GetMethod("SetAppStateForScreenshot" + i, BindingFlags.NonPublic | BindingFlags.Instance);
+                if (methodInfo.GetBaseDefinition().DeclaringType != methodInfo.DeclaringType) {
+                    var setAppStateForScreenshot = (Action)Delegate.CreateDelegate(typeof(Action), this, methodInfo);
+                    TakeScreenshot(deviceName, setAppStateForScreenshot);
+                }
+            }
+
+            Console.WriteLine($"{Environment.NewLine}All screenshots completed 😃");
+        }
+
+        void TakeScreenshot(string deviceName, Action readyAppForScreenshot) {
+            readyAppForScreenshot();
+            if (!SaveScreenshots) {
+                return;
+            }
+
+            ++screenshotIndex;
+            var screenshotFile = App.Screenshot("temp");
+            var filename = screenshotIndex + " " + deviceName + Path.GetExtension(screenshotFile.FullName);
+            var destinationFileName = Path.Combine(screenshotsDirectory.FullName, filename);
+            screenshotFile.MoveTo(destinationFileName);
+            if (OptimizeImagesAfterSave) {
+                OptimizeImage(destinationFileName);
+            }
+        }
+
+        void OptimizeImage(string destinationFileName) {
+            var optimizeImage = new ProcessStartInfo {
+                FileName = "/Applications/ImageOptim.app/Contents/MacOS/ImageOptim",
+                UseShellExecute = false,
+                Arguments = "\"" + destinationFileName + "\""
+            };
+
+            Process.Start(optimizeImage);
+        }
+
         static class DeviceSetParser {
             public static IEnumerable<Device> GetAvailableSimulators(string osVersion, string[] deviceNames) {
                 var devicesForVersion = GetAvailableSimulators(osVersion);
@@ -309,69 +307,69 @@ namespace Xnapshot {
                     "Library/Developer/CoreSimulator/Devices/");
                 var plistPath = Path.Combine(simulatorPath, "device_set.plist");
 
-                var deviceSet = ReadDeviceSetPlist();
+                var deviceSet = ReadDeviceSetPlist(plistPath);
                 var defaultDevices = (Dictionary<string, object>)deviceSet["DefaultDevices"];
 
                 var fulliOSVersion = defaultDevices.Keys.SingleOrDefault(
                     k => k.EndsWith(osVersion, StringComparison.InvariantCulture));
                 var devicesForVersion = (Dictionary<string, object>)defaultDevices[fulliOSVersion];
                 return devicesForVersion;
+            }
 
-                Dictionary<string, object> ReadDeviceSetPlist() {
-                    using (var deviceXML = new FileStream(plistPath, FileMode.Open, FileAccess.Read)) {
-                        var xml = new XmlDocument {
-                            XmlResolver = null
-                        };
-                        xml.Load(deviceXML);
+            static Dictionary<string, object> ReadDeviceSetPlist(string plistPath) {
+                using (var deviceXML = new FileStream(plistPath, FileMode.Open, FileAccess.Read)) {
+                    var xml = new XmlDocument {
+                        XmlResolver = null
+                    };
+                    xml.Load(deviceXML);
 
-                        var rootNode = xml.DocumentElement.ChildNodes[0];
-                        return (Dictionary<string, object>)Parse(rootNode);
+                    var rootNode = xml.DocumentElement.ChildNodes[0];
+                    return (Dictionary<string, object>)Parse(rootNode);
+                }
+            }
 
-                        object Parse(XmlNode node) {
-                            switch (node.Name) {
-                                case "dict":
-                                    return ParseDictionary(node);
-                                case "string":
-                                    return node.InnerText;
-                                case "integer":
-                                    return Convert.ToInt32(node.InnerText, System.Globalization.NumberFormatInfo.InvariantInfo);
-                                case "true":
-                                case "false":
-                                    return bool.Parse(node.Name);
-                                default:
-                                    throw new InvalidOperationException("Unexpted content in device_set.plist " + node.Name);
-                            }
-                        }
+            static object Parse(XmlNode node) {
+                switch (node.Name) {
+                    case "dict":
+                        return ParseDictionary(node);
+                    case "string":
+                        return node.InnerText;
+                    case "integer":
+                        return Convert.ToInt32(node.InnerText, System.Globalization.NumberFormatInfo.InvariantInfo);
+                    case "true":
+                    case "false":
+                        return bool.Parse(node.Name);
+                    default:
+                        throw new InvalidOperationException("Unexpted content in device_set.plist " + node.Name);
+                }
+            }
 
-                        Dictionary<string, object> ParseDictionary(XmlNode node) {
-                            var children = node.ChildNodes;
-                            if (children.Count % 2 != 0) {
-                                throw new DataMisalignedException(
-                                    "Dictionary elements must have an even number of child nodes, was " + children.Count);
-                            }
+            static Dictionary<string, object> ParseDictionary(XmlNode node) {
+                var children = node.ChildNodes;
+                if (children.Count % 2 != 0) {
+                    throw new DataMisalignedException(
+                        "Dictionary elements must have an even number of child nodes, was " + children.Count);
+                }
 
-                            var dict = new Dictionary<string, object>();
-                            for (int i = 0; i < children.Count; i += 2) {
-                                XmlNode keynode = children[i];
-                                XmlNode valnode = children[i + 1];
-                                if (keynode.Name != "key") {
-                                    throw new InvalidOperationException("Expected a key node, was " + keynode.Name);
-                                }
+                var dict = new Dictionary<string, object>();
+                for (int i = 0; i < children.Count; i += 2) {
+                    XmlNode keynode = children[i];
+                    XmlNode valnode = children[i + 1];
+                    if (keynode.Name != "key") {
+                        throw new InvalidOperationException("Expected a key node, was " + keynode.Name);
+                    }
 
-                                var result = Parse(valnode);
-                                if (result != null) {
-                                    dict.Add(keynode.InnerText, result);
-                                }
-                            }
-
-                            return dict;
-                        }
+                    var result = Parse(valnode);
+                    if (result != null) {
+                        dict.Add(keynode.InnerText, result);
                     }
                 }
+
+                return dict;
             }
         }
 
-        readonly struct Device {
+        struct Device {
             public Device(string uuid, string name) {
                 UUID = uuid;
                 Name = name;
