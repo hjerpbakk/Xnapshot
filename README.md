@@ -2,9 +2,9 @@
 
 > Xnapshot enables you to use C#, together with Xamarin.UITest, to automatically take app screenshots for you. Just derive from the abstract Screenshots class, implement one method per screenshot and use your time productively while your computer takes the screenshots.
 
-[![Build status](https://ci.appveyor.com/api/projects/status/tkls3ydfbu9lcmqu?svg=true)](https://ci.appveyor.com/project/Sankra/xnapshot) [![Latest version](https://img.shields.io/nuget/v/Xnapshot.svg)](https://www.nuget.org/packages/Xnapshot/) [![Downloads from nuget](https://img.shields.io/nuget/dt/Xnapshot.svg)](https://www.nuget.org/packages/Xnapshot/)
+[![Build status](https://ci.appveyor.com/api/projects/status/tkls3ydfbu9lcmqu?svg=true)](https://ci.appveyor.com/project/Sankra/xnapshot) [![Latest version](https://img.shields.io/nuget/v/Xnapshot.svg)](https://www.nuget.org/packages/Xnapshot/) [![Downloads from NuGet](https://img.shields.io/nuget/dt/Xnapshot.svg)](https://www.nuget.org/packages/Xnapshot/)
 
-Taking screenshots of your app on every device and localisation quickly becomes time consuming. With two languages, four different iPhones and five screenshots you are faced with forty screenshots per release. If we increase the number of languages to 10 and add iPad support, this number explodes to 10 (languages) x 7 (devices) x 5 (screenshots) = **350 screenshots**!
+Taking screenshots of your app on every device and localization quickly becomes time-consuming. With 2 languages, 6 different iPhones and 10 screenshots, you are faced with 120 screenshots per release. If we increase the number of languages to 10 and add iPad support, this number explodes to 10 (languages) x 11 (devices) x 10 (screenshots) = **1 100 screenshots**!
 
 `Xnapshot` enables you to use C#, together with Xamarin.UITest, to automatically take the screenshots for you. Just derive from the abstract [Screenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs#L49) class, implement one method per screenshot and use your time productively while your computer takes the screenshots.
 
@@ -17,7 +17,7 @@ Download this repository, open the solution in Visual Studio for Mac and run [Xn
 ### Prerequisites
 
 - Create your [awesome iOS app](https://itunes.apple.com/no/app/id953899091?at=11l5UV&ct=website) using C# and Xamarin.
-- Add the [Xamarin.TestCloud.Agent](https://www.nuget.org/packages/Xamarin.TestCloud.Agent/) nuget package to your iOS project and update your `AppDelegate` class to enable [Calabash](https://github.com/calabash), the remote control for your app, while running in debug mode.
+- Add the [Xamarin.TestCloud.Agent](https://www.nuget.org/packages/Xamarin.TestCloud.Agent/) NuGet package to your iOS project and update your `AppDelegate` class to enable [Calabash](https://github.com/calabash), the remote control for your app, while running in debug mode.
 
 ```cs
 public override void FinishedLaunching(UIApplication application) {
@@ -31,9 +31,9 @@ public override void FinishedLaunching(UIApplication application) {
 
 I use the settings for one of my own apps, [Golden Ratio Calculator](https://itunes.apple.com/no/app/id953899091?at=11l5UV&ct=website), to illustrate the usage of Xnapshot.
 
-- Add a new .Net Framework `Console project` to your solution and add the [Xnapshot](https://www.nuget.org/packages/Xnapshot/) nuget package. I name such projects `[AppName].Screens`. The project must a .Net Framework project, version 4.5 or newer. .Net Core is not supported as Xamarin.UITests, which is needed to automate the before each screenshot, does not support .Net Core.
+- Add a new .Net Framework `Console project` to your solution and add the [Xnapshot](https://www.nuget.org/packages/Xnapshot/) NuGet package. I name such projects `[AppName].Screens`. The project must a .Net Framework project, version 4.5 or newer. .Net Core is not supported as Xamarin.UITests, which is needed to automate the before each screenshot, does not support .Net Core.
 - Create a new class, `[AppName]Screenshots` and derive from the abstract [Xnapshot.Screenshots](https://github.com/Sankra/Xnapshot/blob/master/Xnapshot/Screenshots.cs#L49) class.
-- Add your iOS version, screenshots folder, path to your App bundle and devices you wish to screenshot as constructor arguments. The devices listed below covers all iPhone screen sizes of the time of writing.
+- Add your iOS version, screenshots folder, the path to your App bundle and devices you wish to screenshot as constructor arguments. The devices listed below covers all iPhone screen sizes of the time of writing.
 
 ```cs
 public class GoldenRatioScreenshots : Screenshots {
