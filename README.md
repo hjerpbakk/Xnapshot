@@ -99,7 +99,7 @@ public static void Main(string[] args) {
 
 My screenshots look like this after this example app has run (I've framed them for the occasion):
 
-<img src="https://hjerpbakk.com/img/Xnapshot/screenshots.png" width="2740" height="1308">
+<img src="https://hjerpbakk.com/img/Xnapshot/screenshots.png" width="805" height="374">
 
 And the screenshots folder contains screenshots for all configured devices:
 
