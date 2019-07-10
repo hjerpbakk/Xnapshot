@@ -1,5 +1,6 @@
 # Xnapshot
-**Xnapshot - automated, localised screenshots of your iOS app on every device using C#.** 
+
+> Xnapshot enables you to use C#, together with Xamarin.UITest, to automatically take app screenshots for you. Just derive from the abstract Screenshots class, implement one method per screenshot and use your time productively while your computer takes the screenshots.
 
 [![](https://ci.appveyor.com/api/projects/status/t54ab89a920to726/branch/master?svg=true)](https://ci.appveyor.com/project/Sankra/xnapshot) [![Dependency Status](https://dependencyci.com/github/Sankra/Xnapshot/badge)](https://dependencyci.com/github/Sankra/Xnapshot) [![Downloads from nuget](https://img.shields.io/nuget/dt/Xnapshot.svg)](https://www.nuget.org/packages/Xnapshot/)
 

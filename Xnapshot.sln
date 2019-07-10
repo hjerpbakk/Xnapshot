@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xnapshot", "Xnapshot\Xnapshot.csproj", "{0F1E71DA-B03F-4EA2-9766-BDF48440C545}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xnapshot.TestApp", "Xnapshot.TestApp\Xnapshot.TestApp.csproj", "{5A821101-DA85-4818-846B-E1FC42DCA980}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xnapshot.Example.Usage", "Xnapshot.Example.Usage\Xnapshot.Example.Usage.csproj", "{DE87E8BC-6E69-49B7-8553-F05042EC2307}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deliver", "Deliver\Deliver.csproj", "{C1E647C6-0FD7-4827-B73A-2DD07B8A99D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xnapshot.Example.iOS", "Xnapshot.Example.iOS\Xnapshot.Example.iOS.csproj", "{A2B620F3-98F8-4AAE-95B7-4E26A57AAE29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,33 +29,33 @@ Global
 		{0F1E71DA-B03F-4EA2-9766-BDF48440C545}.Release|iPhoneSimulator.Build.0 = Release|x86
 		{0F1E71DA-B03F-4EA2-9766-BDF48440C545}.Release|x86.ActiveCfg = Release|x86
 		{0F1E71DA-B03F-4EA2-9766-BDF48440C545}.Release|x86.Build.0 = Release|x86
-		{5A821101-DA85-4818-846B-E1FC42DCA980}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{5A821101-DA85-4818-846B-E1FC42DCA980}.Debug|iPhone.Build.0 = Debug|iPhone
-		{5A821101-DA85-4818-846B-E1FC42DCA980}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
-		{5A821101-DA85-4818-846B-E1FC42DCA980}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
-		{5A821101-DA85-4818-846B-E1FC42DCA980}.Debug|x86.ActiveCfg = Debug|iPhoneSimulator
-		{5A821101-DA85-4818-846B-E1FC42DCA980}.Debug|x86.Build.0 = Debug|iPhoneSimulator
-		{5A821101-DA85-4818-846B-E1FC42DCA980}.Release|iPhone.ActiveCfg = Release|iPhone
-		{5A821101-DA85-4818-846B-E1FC42DCA980}.Release|iPhone.Build.0 = Release|iPhone
-		{5A821101-DA85-4818-846B-E1FC42DCA980}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
-		{5A821101-DA85-4818-846B-E1FC42DCA980}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
-		{5A821101-DA85-4818-846B-E1FC42DCA980}.Release|x86.ActiveCfg = Release|iPhone
-		{5A821101-DA85-4818-846B-E1FC42DCA980}.Release|x86.Build.0 = Release|iPhone
-		{C1E647C6-0FD7-4827-B73A-2DD07B8A99D0}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{C1E647C6-0FD7-4827-B73A-2DD07B8A99D0}.Debug|iPhone.Build.0 = Debug|iPhone
-		{C1E647C6-0FD7-4827-B73A-2DD07B8A99D0}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhone
-		{C1E647C6-0FD7-4827-B73A-2DD07B8A99D0}.Debug|iPhoneSimulator.Build.0 = Debug|iPhone
-		{C1E647C6-0FD7-4827-B73A-2DD07B8A99D0}.Debug|x86.ActiveCfg = Debug|iPhone
-		{C1E647C6-0FD7-4827-B73A-2DD07B8A99D0}.Debug|x86.Build.0 = Debug|iPhone
-		{C1E647C6-0FD7-4827-B73A-2DD07B8A99D0}.Release|iPhone.ActiveCfg = Release|iPhone
-		{C1E647C6-0FD7-4827-B73A-2DD07B8A99D0}.Release|iPhone.Build.0 = Release|iPhone
-		{C1E647C6-0FD7-4827-B73A-2DD07B8A99D0}.Release|iPhoneSimulator.ActiveCfg = Release|iPhone
-		{C1E647C6-0FD7-4827-B73A-2DD07B8A99D0}.Release|iPhoneSimulator.Build.0 = Release|iPhone
-		{C1E647C6-0FD7-4827-B73A-2DD07B8A99D0}.Release|x86.ActiveCfg = Release|iPhone
-		{C1E647C6-0FD7-4827-B73A-2DD07B8A99D0}.Release|x86.Build.0 = Release|iPhone
+		{DE87E8BC-6E69-49B7-8553-F05042EC2307}.Debug|x86.ActiveCfg = Debug|x86
+		{DE87E8BC-6E69-49B7-8553-F05042EC2307}.Debug|x86.Build.0 = Debug|x86
+		{DE87E8BC-6E69-49B7-8553-F05042EC2307}.Release|x86.ActiveCfg = Release|x86
+		{DE87E8BC-6E69-49B7-8553-F05042EC2307}.Release|x86.Build.0 = Release|x86
+		{DE87E8BC-6E69-49B7-8553-F05042EC2307}.Debug|iPhoneSimulator.ActiveCfg = Debug|x86
+		{DE87E8BC-6E69-49B7-8553-F05042EC2307}.Debug|iPhoneSimulator.Build.0 = Debug|x86
+		{DE87E8BC-6E69-49B7-8553-F05042EC2307}.Release|iPhone.ActiveCfg = Release|x86
+		{DE87E8BC-6E69-49B7-8553-F05042EC2307}.Release|iPhone.Build.0 = Release|x86
+		{DE87E8BC-6E69-49B7-8553-F05042EC2307}.Release|iPhoneSimulator.ActiveCfg = Release|x86
+		{DE87E8BC-6E69-49B7-8553-F05042EC2307}.Release|iPhoneSimulator.Build.0 = Release|x86
+		{DE87E8BC-6E69-49B7-8553-F05042EC2307}.Debug|iPhone.ActiveCfg = Debug|x86
+		{DE87E8BC-6E69-49B7-8553-F05042EC2307}.Debug|iPhone.Build.0 = Debug|x86
+		{A2B620F3-98F8-4AAE-95B7-4E26A57AAE29}.Debug|x86.ActiveCfg = Debug|iPhoneSimulator
+		{A2B620F3-98F8-4AAE-95B7-4E26A57AAE29}.Debug|x86.Build.0 = Debug|iPhoneSimulator
+		{A2B620F3-98F8-4AAE-95B7-4E26A57AAE29}.Release|x86.ActiveCfg = Release|iPhoneSimulator
+		{A2B620F3-98F8-4AAE-95B7-4E26A57AAE29}.Release|x86.Build.0 = Release|iPhoneSimulator
+		{A2B620F3-98F8-4AAE-95B7-4E26A57AAE29}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{A2B620F3-98F8-4AAE-95B7-4E26A57AAE29}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{A2B620F3-98F8-4AAE-95B7-4E26A57AAE29}.Release|iPhone.ActiveCfg = Release|iPhone
+		{A2B620F3-98F8-4AAE-95B7-4E26A57AAE29}.Release|iPhone.Build.0 = Release|iPhone
+		{A2B620F3-98F8-4AAE-95B7-4E26A57AAE29}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{A2B620F3-98F8-4AAE-95B7-4E26A57AAE29}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{A2B620F3-98F8-4AAE-95B7-4E26A57AAE29}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{A2B620F3-98F8-4AAE-95B7-4E26A57AAE29}.Debug|iPhone.Build.0 = Debug|iPhone
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		description = Xnapshot - automating screenshots of your iOS app on every device using Xamarin.UITest.
-		version = 1.0.1
+		version = 2.0
 	EndGlobalSection
 EndGlobal
